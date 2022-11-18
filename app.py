@@ -2,13 +2,14 @@ from flask import Flask
 from flask import url_for # 回傳路徑
 from flask import redirect # 重新導向
 from flask import render_template # 渲染頁面
+from flask import request
 
 app = Flask(__name__)
 # app.config.from_pyfile("configs.py")
 
-@app.route("/") # 根目錄
-def home():
-    return "Hello World!"
+# @app.route("/") # 根目錄
+# def home():
+#     return "Hello World!"
 
 @app.route("/test1")
 def test1():
@@ -26,6 +27,15 @@ def index():
 @app.route("/<user>")
 def test3(user):
     return render_template('index.html', username='Dan')
+
+@app.route("/")
+def login():
+    return render_template('login.html')
+
+@app.route("/hello", methods=['GET', 'POST']) # methods 路由的允許方式
+def hello():
+    if request.method == 'GET':
+        return 'Hello' + request.args['username'] # args取得前端的username
 
 if __name__ == '__main__':
     app.run()

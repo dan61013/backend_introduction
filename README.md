@@ -141,3 +141,12 @@ Git 指令
 ### Flask
 
 1. [配置管理](https://dormousehole.readthedocs.io/en/latest/config.html#TESTING)
+
+2. 基本語法:
+   
+   1. from flask import Flask, url_for, redirect, render_template
+   2. variable = Flask(\_\_name__)
+   3. app.route('/url')
+   4. def function
+   5. return ...
+   6. 
