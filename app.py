@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Request
 from flask import url_for # 回傳路徑
 from flask import redirect # 重新導向
 from flask import render_template # 渲染頁面
@@ -30,12 +30,13 @@ def test3(user):
 
 @app.route("/")
 def login():
-    return render_template('login.html')
+    return render_template('login2.html')
 
 @app.route("/hello", methods=['GET', 'POST']) # methods 路由的允許方式
 def hello():
-    if request.method == 'GET':
-        return 'Hello' + request.args['username'] # args取得前端的username
+    if request.method == 'POST':
+        # return 'Hello' + request.args['username'] # args取得前端的username, 使用GET方式
+        return 'Hello' + request.form['username'] # 使用POST方式
 
 if __name__ == '__main__':
     app.run()
