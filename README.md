@@ -6,7 +6,7 @@
 
 使用工具:
 1. Python, Flask
-2. MySQL
+2. MySQL 8.0
 3. Visual Studio Code
 
 ---
