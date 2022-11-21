@@ -189,3 +189,108 @@ def index():
     secure(如果設定為:True，Cookie 僅在 Https 時才被傳送)
     httponly(如果設定為:True，JavaScript 無法取得這個 Cookie)
     samesite(可設定為:Strict、Lax、None，可以不同程度地限制 Cookies 的傳輸)
+
+### Session
+
+Server 和 Client 不會一直保持連線狀態，無法取得雙方的狀態，所以使用了 Session，Session 就像是餐廳的號碼牌， Server 可以透過該號碼牌來認定 Client 的身分、是否點過餐、知道 Client 點了什麼東西，給予 Client 餐點。
+
+---
+
+## 資料庫
+
+資料管理系統，可視為電子化的檔案櫃，使用者可以對檔案中的資料，執行: 新增、擷取、更新、刪除等操作
+
+關聯式資料庫:
+
+    是建立在關聯模型基礎上的資料庫，資料庫是由多個資料表所組成，可以將資料表關聯起來連結之間的關係。
+
+非關聯式資料庫
+
+    資料存放區都未使用關聯式模式，它們傾向於對其支援的資料類型及資料的查詢方式提供更具體的方法。
+
+[MySQL](https://dev.mysql.com/)
+
+1. custom安裝
+2. MySQL Server, MySQL Workbench, MySQL Shell
+3. 設定密碼
+
+### MySQL指令
+1. CREATE SCHEMA 資料庫名稱; -> 創建資料庫
+2. SHOW DATABASES; -> 讀取資料庫
+3. DROP DATABASE 資料庫名稱; -> 刪除資料庫
+4. USE 資料庫名稱; -> 使用資料庫
+5. 創建資料表:
+```
+CREATE Table `表格名稱`(
+        `資料名稱1` type,
+        `資料名稱2` type
+   );
+```
+6. 查看Table
+```
+DESCRIBE `Table_name`
+```
+7. 新增表格資料
+```
+ALTER TABLE `表格名稱` ADD `欄位名稱` Type;
+```
+8. 刪除表格資料
+```
+ALTER TABLE `Tabel_name` DROP COLUMN 欄位名稱;
+```
+9. 刪除表格
+```
+DROP TABLE `Table_name`
+```
+10. 存入資料
+```
+INSERT INTO `Table_name` VALUES('欄位1', '欄位2'...);
+```
+11. 讀取Table內的資料(所有資料)
+```
+SELECT * FROM `Table_name`;
+```
+12. Table 選擇指定欄位資料
+```
+SELECT `欄位1`, `欄位2` from `Table_name`;
+```
+13. Table index(value) (兩種方式)
+```
+SELECT * FROM `Table_name` WHERE `欄位名稱`=內容;
+SELECT * FROM `Table_name` WHERE `欄位名稱` in(內容);
+```
+14. 設定安全更新環境 (0=關閉, 1=開啟)
+```
+SET SQL_SAFE_UPDATES=0;
+SET SQL_SAFE_UPDATES=1;
+```
+15. 無條件更新資料、有條件更新資料
+```
+UPDATE `Table_name` SET `欄位名稱`=內容;
+
+UPDATE `Table_name` SET `欄位名稱`=內容 WHERE `欄位名稱` = 內容 
+```
+16.  無條件刪除資料、有條件刪除資料
+```
+DELETE FROM `Table_name`;
+DELETE FROM `Table_name` WHERE `欄位名稱`=內容;
+```
+17. 資料篩選
+```
+SELECT * FROM `Table_name` WHERE `欄位名稱`=內容;
+# 有 >, >=, =, !=, <=, <, And, Or
+```
+18. 資料限制
+```
+type NOT NULL; # 不能為空值
+type UNIQUE; # 唯一值
+`Column_name` type,
+PRIMARY KEY (column_name)
+```
+
+### MySQL資料型別
+1. Number: INT(整數), DECIMEL(小數)
+2. String: NVARCHAR(字串)
+3. Time: DATE(日期), TIME(時間), DATETIME(日期時間)
+4. BLOB: 二進制資料(Binary Large Object)
+5. 
