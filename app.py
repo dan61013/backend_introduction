@@ -35,8 +35,9 @@ def login():
 @app.route("/hello", methods=['GET', 'POST']) # methods 路由的允許方式
 def hello():
     if request.method == 'POST':
-        # return 'Hello' + request.args['username'] # args取得前端的username, 使用GET方式
-        return 'Hello' + request.form['username'] # 使用POST方式
+        # return 'Hello ' + request.args['username'] # args取得前端的username, 使用GET方式
+        # return 'Hello ' + request.form['username'] # 使用POST方式, 取form
+        return 'Hello ' + request.values['username'] # 使用POST方式, 取values
 
 if __name__ == '__main__':
     app.run()

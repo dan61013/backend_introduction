@@ -149,4 +149,21 @@ Git 指令
    3. app.route('/url')
    4. def function
    5. return ...
-   6. 
+
+3. request, method: GET, POST
+
+   1. GET: 從指定的資源請求數據，提交參數會顯示在url
+   2. POST: 向指定的資源提交要被處理的數據，透過表單，提交參數不會顯示在url (更隱密)
+
+※ 登入頁面做法: 
+
+    1. 設定@app.route("/"), function return render_template('login.html')
+    2. 設定@app.route("/hello"), function return str, or request.args, form, values，獲取參數
+
+## HTTP error
+
+---
+
+## Cookie
+
+簡述: 網站為了辨別使用者身分而儲存在用戶端（Client Side）上的資料，使用Cookie能夠讓使用者在網路瀏覽上更加方便，但在網路隱私的方面來說Cookie危害了使用者的安全。
