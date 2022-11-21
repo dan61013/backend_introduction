@@ -157,8 +157,18 @@ Git 指令
 
 ※ 登入頁面做法: 
 
-    1. 設定@app.route("/"), function return render_template('login.html')
-    2. 設定@app.route("/hello"), function return str, or request.args, form, values，獲取參數
+    1. 設定登入頁面
+```python
+@app.route("/")
+def login():
+    return render_template('login.html')
+```
+    2. 設定抓取參數顯示結果頁面
+```python
+@app.route("/hello")
+def index():
+    return 'Test' + request.args['username']
+```
 
 ## HTTP error
 
@@ -167,3 +177,15 @@ Git 指令
 ## Cookie
 
 簡述: 網站為了辨別使用者身分而儲存在用戶端（Client Side）上的資料，使用Cookie能夠讓使用者在網路瀏覽上更加方便，但在網路隱私的方面來說Cookie危害了使用者的安全。
+
+    set_cookie 設定
+
+    key(Cookie 的名稱) (此為必填欄位)
+    value(Cookie 的值)
+    expires(Cookie的有效日期)
+    max_age(與expires類似) (非所有瀏覽器都支持)
+    path(存取該 Cookie 的路徑)
+    domain(存取該 Cookie 的網域)
+    secure(如果設定為:True，Cookie 僅在 Https 時才被傳送)
+    httponly(如果設定為:True，JavaScript 無法取得這個 Cookie)
+    samesite(可設定為:Strict、Lax、None，可以不同程度地限制 Cookies 的傳輸)
