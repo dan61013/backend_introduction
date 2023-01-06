@@ -293,4 +293,3 @@ PRIMARY KEY (column_name)
 2. String: NVARCHAR(字串)
 3. Time: DATE(日期), TIME(時間), DATETIME(日期時間)
 4. BLOB: 二進制資料(Binary Large Object)
-5. 
